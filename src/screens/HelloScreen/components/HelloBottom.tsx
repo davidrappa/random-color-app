@@ -2,18 +2,17 @@ import React from "react";
 
 import { Box, BoxStyleProps, Icon } from "@components";
 import { useAppSafeArea } from "@hooks";
-import { DialogType } from "@services";
 
 interface HelloBottomProps {
   children: React.ReactNode;
   isDarkColor: boolean;
-  onPressIcon: (type: DialogType) => void;
+  onPress: () => void;
 }
 
 export function HelloBottom({
   children,
   isDarkColor,
-  onPressIcon,
+  onPress,
 }: HelloBottomProps) {
   const { bottom } = useAppSafeArea();
 
@@ -23,16 +22,10 @@ export function HelloBottom({
         {children || null}
         <Box style={$boxIcons}>
           <Icon
-            name="brightnessIcon"
-            size={28}
-            color={isDarkColor ? "white" : "black"}
-            onPress={() => onPressIcon(DialogType.Bright)}
-          />
-          <Icon
             name="palletIcon"
             size={28}
             color={isDarkColor ? "white" : "black"}
-            onPress={() => onPressIcon(DialogType.Colors)}
+            onPress={onPress}
           />
         </Box>
       </Box>

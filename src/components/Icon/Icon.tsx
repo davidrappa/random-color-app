@@ -4,7 +4,6 @@ import { Pressable } from "react-native";
 import { useAppTheme } from "@hooks";
 import { ThemeColors } from "@theme";
 
-import { BrightnessIcon } from "../../assets/icons/BrightnessIcon";
 import { PalletIcon } from "../../assets/icons/PalletIcon";
 
 export interface IconBase {
@@ -48,7 +47,6 @@ export function Icon({
 }
 
 const iconRegistry = {
-  brightnessIcon: BrightnessIcon,
   palletIcon: PalletIcon,
 };
 

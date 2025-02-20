@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { randomColorService } from "./randomColorService";
 
 import { useAppTheme } from "@hooks";
-import { DialogType } from "./randomColorTypes";
+
 import { delay } from "@utils";
 
 export function useRandomColor() {
@@ -12,7 +12,7 @@ export function useRandomColor() {
   const [backgroundColor, setBackgroundColor] = useState<string>(colors.white);
   const [isDarkColor, setIsDarkColor] = useState<boolean>(false);
 
-  const [isOpenDialog, setIsOpenDialog] = useState<DialogType | null>(null);
+  const [isOpenDialog, setIsOpenDialog] = useState<boolean>(false);
 
   function getRandomColor() {
     const color = randomColorService.generateRandomColor();
@@ -29,16 +29,16 @@ export function useRandomColor() {
     setBackgroundColor(color);
   }
 
-  async function toggleColorPalletDialog(type: DialogType) {
-    if (type === isOpenDialog) {
-      return setIsOpenDialog(null);
+  async function toggleColorPalletDialog() {
+    if (isOpenDialog) {
+      return setIsOpenDialog(false);
     }
 
-    setIsOpenDialog(type);
+    setIsOpenDialog(true);
 
     await delay(8000);
 
-    setIsOpenDialog(null);
+    setIsOpenDialog(false);
   }
 
   return {

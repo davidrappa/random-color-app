@@ -1,11 +1,10 @@
 import React from "react";
 
 import { Box, BoxStyleProps, Screen, Text, TouchableBox } from "@components";
-import { DialogType, useEmoji, useRandomColor } from "@services";
+import { useEmoji, useRandomColor } from "@services";
 import { useAppTheme } from "@hooks";
 
-import { HelloBottom } from "./components/HelloBottom";
-import { HelloPickColor } from "./components";
+import { HelloPickColor, HelloBottom } from "./components";
 
 export function HelloScreen() {
   const {
@@ -37,9 +36,9 @@ export function HelloScreen() {
         </Box>
         <HelloBottom
           isDarkColor={isDarkColor}
-          onPressIcon={toggleColorPalletDialog}
+          onPress={toggleColorPalletDialog}
         >
-          {isOpenDialog === DialogType.Colors && (
+          {isOpenDialog && (
             <HelloPickColor setSpecificColor={setSpecificColor} />
           )}
         </HelloBottom>
