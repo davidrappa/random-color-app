@@ -4,14 +4,18 @@ import { Box, BoxStyleProps, Screen, Text, TouchableBox } from "@components";
 import { useEmoji, useRandomColor } from "@services";
 
 export function HelloScreen() {
-  const { backgroundColor, getRandomColor } = useRandomColor();
+  const { backgroundColor, isDarkColor, getRandomColor } = useRandomColor();
   const { emoji } = useEmoji(backgroundColor);
 
   return (
     <Screen backgroundColor={backgroundColor}>
       <TouchableBox onPress={getRandomColor}>
         <Box style={$boxStyle}>
-          <Text fontWeight="bold" fontSize={28} color={"#000"}>
+          <Text
+            fontWeight="bold"
+            fontSize={28}
+            color={isDarkColor ? "#fff" : "#000"}
+          >
             Hello there {emoji}
           </Text>
         </Box>
