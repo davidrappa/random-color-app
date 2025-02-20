@@ -1,20 +1,15 @@
 import React from "react";
-import {
-  TouchableWithoutFeedback,
-  TouchableWithoutFeedbackProps,
-} from "react-native";
+import { TouchableOpacity, TouchableOpacityProps } from "react-native";
 
-export interface TouchableBoxProps extends TouchableWithoutFeedbackProps {
-  children: React.ReactNode;
+export interface TouchableBoxProps extends TouchableOpacityProps {
+  children?: React.ReactNode;
 }
 
 export function TouchableBox({
   children,
-  ...touchableWithoutFeedbackProps
+  ...touchableOpacityProps
 }: TouchableBoxProps) {
   return (
-    <TouchableWithoutFeedback {...touchableWithoutFeedbackProps}>
-      {children}
-    </TouchableWithoutFeedback>
+    <TouchableOpacity {...touchableOpacityProps}>{children}</TouchableOpacity>
   );
 }

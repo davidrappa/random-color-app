@@ -4,7 +4,7 @@ import { View, ViewProps } from "react-native";
 export type BoxStyleProps = ViewProps["style"];
 
 export interface BoxProps extends ViewProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export function Box({ children, ...boxProps }: BoxProps) {
