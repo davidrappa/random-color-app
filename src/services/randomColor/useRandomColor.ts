@@ -2,8 +2,12 @@ import { useState } from "react";
 
 import { randomColorService } from "./randomColorService";
 
+import { useAppTheme } from "@hooks";
+
 export function useRandomColor() {
-  const [backgroundColor, setBackgroundColor] = useState<string>("#FFF");
+  const { colors } = useAppTheme();
+
+  const [backgroundColor, setBackgroundColor] = useState<string>(colors.white);
   const [isDarkColor, setIsDarkColor] = useState<boolean>(false);
 
   function getRandomColor() {
